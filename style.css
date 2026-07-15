@@ -85,13 +85,11 @@ section{
     background-color: #d3d2d2;
 }
 .card-container{
-    margin-top: 20px;
-
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    margin-top:20px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
 }
-
 .card{
     width: 100%;
     max-width: 220px;
@@ -234,7 +232,11 @@ section{
     color:blue;
 
 }
+.geser{
 
+    display:none;
+
+}
 /* ================= MOBILE ================= */
 
 @media (max-width:768px){
@@ -285,20 +287,56 @@ section{
     }
 
     /* CARD */
+.card-container::-webkit-scrollbar{
 
-    .card-container{
-        width:100%;
-        display:grid;
-        grid-template-columns:repeat(2,1fr);
-        gap:15px;
-    }
+    display:none;
 
-    .card{
-        width:100%;
-        max-width:none;
-        padding:15px;
-        border-radius:15px;
-    }
+}
+
+.scroll-card{
+
+    display:flex;
+
+    overflow-x:auto;
+
+    gap:15px;
+
+    scroll-snap-type:x mandatory;
+
+    scrollbar-width:none;
+
+    padding-bottom:10px;
+
+}
+
+.scroll-card::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+.scroll-card .card{
+
+    min-width:180px;
+
+    max-width:180px;
+
+    flex-shrink:0;
+
+    scroll-snap-align:start;
+
+}
+.card{
+
+    min-width:180px;
+
+    max-width:180px;
+
+    flex-shrink:0;
+
+    scroll-snap-align:start;
+
+}
 
     .card h3{
         font-size:18px;
@@ -370,6 +408,18 @@ section{
     .contact-item{
         font-size:16px;
         word-break:break-word;
+    }
+
+    .geser{
+
+        display:block;
+
+        margin:10px 0 20px;
+
+        color:#666;
+
+        font-size:14px;
+
     }
 
 }
