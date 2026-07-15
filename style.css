@@ -14,6 +14,10 @@ body{
     font-family:Arial, Helvetica, sans-serif;
 }
 
+html,
+body{
+    overflow-x:hidden;
+}
 /* ================= NAVBAR ================= */
 
 nav{
@@ -85,7 +89,6 @@ section{
     background-color: #d3d2d2;
 }
 .card-container{
-    margin-top:20px;
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:20px;
@@ -113,19 +116,21 @@ section{
 
 .card img{
     width: 100%;
-    height: 180px;
-    object-fit: cover;
-}
-#GambarBS{
-    display: block;
-    margin: auto;
-
-    width: 80px;
-    height: 80px;
-
+    aspect-ratio: 1/1;
     object-fit: cover;
 }
 
+.card-image{
+    display:block;
+    margin:auto;
+
+    width:100%;
+    aspect-ratio:1/1;
+
+    object-fit:cover;
+
+    border-radius:10px;
+}
 
 /* ================= ABOUT ================= */
 
@@ -140,7 +145,6 @@ section{
     max-width:1200px;
 
     margin:50px auto;
-
     display:flex;
     gap:50px;
     align-items:flex-start;
@@ -237,6 +241,39 @@ section{
     display:none;
 
 }
+
+.recommend-scroll{
+    display:flex;
+    gap:20px;
+    overflow-x:auto;
+    padding-bottom:15px;
+
+    scroll-snap-type:x mandatory;
+    scrollbar-width:thin;
+}
+
+.recommend-scroll::-webkit-scrollbar{
+    height:8px;
+}
+
+.recommend-scroll::-webkit-scrollbar-thumb{
+    background:#999;
+    border-radius:20px;
+}
+
+.recommend-card{
+    min-width:220px;
+    max-width:220px;
+    flex-shrink:0;
+    scroll-snap-align:start;
+}
+
+.card-image{
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    border-radius:10px;
+}
 /* ================= MOBILE ================= */
 
 @media (max-width:768px){
@@ -269,8 +306,14 @@ section{
     /* SECTION */
 
     section{
-        padding:80px 15px;
-    }
+
+    width:100%;
+
+    padding:80px 15px;
+
+    overflow:hidden;
+
+}
 
     h1{
         font-size:32px;
@@ -298,15 +341,22 @@ section{
     display:flex;
 
     overflow-x:auto;
+    overflow-y:hidden;
+
+    width:100%;
 
     gap:15px;
 
     scroll-snap-type:x mandatory;
 
-    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
 
     padding-bottom:10px;
 
+    scroll-padding-left:15px;
+
+    padding-left:15px;
+    padding-right:15px;
 }
 
 .scroll-card::-webkit-scrollbar{
@@ -326,13 +376,9 @@ section{
     scroll-snap-align:start;
 
 }
-.card{
+.scroll-card .card{
 
-    min-width:180px;
-
-    max-width:180px;
-
-    flex-shrink:0;
+    flex:0 0 180px;
 
     scroll-snap-align:start;
 
@@ -348,12 +394,7 @@ section{
         line-height:1.4;
     }
 
-    #GambarBS{
-        width:100%;
-        height:140px;
-        border-radius:10px;
-        object-fit:cover;
-    }
+    
 
     /* PRODUCT DETAIL */
 
@@ -420,6 +461,11 @@ section{
 
         font-size:14px;
 
+    }
+
+    .recommend-card{
+    min-width:180px;
+    max-width:180px;
     }
 
 }

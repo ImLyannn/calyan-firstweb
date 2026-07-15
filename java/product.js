@@ -70,11 +70,11 @@ for(const key in produks){
     const item = produks[key];
 
     recommendContainer.innerHTML += `
-        <div class="card">
+        <div class="card recommend-card">
 
             <a href="product.html?id=${key}">
 
-                <img src="${item.pImage}">
+                <img class="card-image" src="${item.pImage}">
 
                 <h3>${item.pTitle}</h3>
 
@@ -87,7 +87,7 @@ for(const key in produks){
 
     jumlah++;
 
-    if(jumlah >= 3) break;
+    if(jumlah >= 10) break;
 
 }
 
