@@ -61,11 +61,13 @@ function updateProduct(){
 
 }
 
+const keys = Object.keys(produks)
+    .filter(key => key != id) // Hilangkan produk yang sedang dibuka
+    .sort(() => Math.random() - 0.5); // Acak urutannya
+
 let jumlah = 0;
 
-for(const key in produks){
-
-    if(key == id) continue;
+for (const key of keys) {
 
     const item = produks[key];
 
@@ -87,7 +89,7 @@ for(const key in produks){
 
     jumlah++;
 
-    if(jumlah >= 10) break;
+    if (jumlah >= 10) break;
 
 }
 
