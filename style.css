@@ -149,6 +149,7 @@ section{
 
 .product-scroll::-webkit-scrollbar{
     height:8px;
+    display: none;
 }
 
 .product-scroll::-webkit-scrollbar-thumb{
@@ -289,6 +290,17 @@ section{
 .contact-item a:hover{
 
     color:blue;
+
+}
+.product-geser{
+
+    display:block;
+
+    margin:10px 0 20px;
+
+    color:#666;
+
+    font-size:14px;
 
 }
 .geser{
@@ -520,5 +532,9 @@ section{
     font-size:14px;
     padding:10px 18px;
     }
-
+    .product-scroll{
+    scroll-padding-left:15px;
+    padding-left:15px;
+    padding-right:15px;
+    }
 }
